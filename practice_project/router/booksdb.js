@@ -76,6 +76,57 @@ let books = {
 };
 
 // Shared users database for registration
-let users = {};
+let users = {
+    "user1": {
+        "username": "user1",
+        "password": "password1",
+        "email": "user1@example.com"
+    },
+    "user2": {
+        "username": "user2",
+        "password": "password2",
+        "email": "user2@example.com"
+    },
+    "user3": {
+        "username": "user3",
+        "password": "password3",
+        "email": "user3@example.com"
+    },
+    "user4": {
+        "username": "user4",
+        "password": "password4",
+        "email": "user4@example.com"
+    },
+    "user5": {
+        "username": "user5",
+        "password": "password5",
+        "email": "user5@example.com"
+    },
+    "user6": {
+        "username": "user6",
+        "password": "password6",
+        "email": "user6@example.com"
+    },
+    "user7": {
+        "username": "user7",
+        "password": "password7",
+        "email": "user7@example.com"
+    },
+    "user8": {
+        "username": "user8",
+        "password": "password8",
+        "email": "user8@example.com"
+    },
+    "user9": {
+        "username": "user9",
+        "password": "password9",
+        "email": "user9@example.com"
+    },
+    "user10": {
+        "username": "user10",
+        "password": "password10",
+        "email": "user10@example.com"
+    },
+};
 
 module.exports = { books, users };
