@@ -1,4 +1,4 @@
-// Shared books database structure
+//books database structure
 let books = {
     "978-0-123456-78-9": {
         "isbn": "978-0-123456-78-9",
@@ -47,6 +47,31 @@ let books = {
         "reviews": {
             "user7": "An adventure of a lifetime!"
         }
+    },
+
+    "978-0-444444-44-4": {
+        "isbn": "978-0-444444-44-4",
+        "author": "F. Scott Fitzgerald",
+        "title": "The Great Gatsby",
+        "reviews": {}
+    },
+    "978-0-666666-66-6": {
+        "isbn": "978-0-666666-66-6",
+        "author": "Jane Austen",
+        "title": "Pride and Prejudice",
+        "reviews": {}
+    },
+    "978-0-777777-77-7": {
+        "isbn": "978-0-777777-77-7",
+        "author": "Mark Twain",
+        "title": "Adventures of Huckleberry Finn",
+        "reviews": {}
+    },
+    "978-0-888888-88-8": {
+        "isbn": "978-0-888888-88-8",
+        "author": "Herman Melville",
+        "title": "Moby Dick",
+        "reviews": {}
     }
 };
 
