@@ -78,6 +78,49 @@ function getBooksByTitle(title) {
     });
 }
 
+// Helper function to get book reviews by ISBN (using Promise)
+function getReviewsByISBN(isbn) {
+    return new Promise((resolve, reject) => {
+        try {
+            if (!books[isbn]) {
+                reject(new Error("Book not found"));
+                return;
+            }
+            const reviews = books[isbn].reviews;
+            if (Object.keys(reviews).length > 0) {
+                resolve(reviews);
+            } else {
+                resolve({ message: "No reviews found for this book" });
+            }
+        } catch (error) {
+            reject(error);
+        }
+    });
+}
+
+// Helper function to register a new user (using Promise)
+function registerUser(username, password) {
+    return new Promise((resolve, reject) => {
+        try {
+            if (!username || !password) {
+                reject(new Error("Username and password are required"));
+                return;
+            }
+            if (users[username]) {
+                reject(new Error("Username already exists. Please choose a different username."));
+                return;
+            }
+            users[username] = {
+                username: username,
+                password: password // In production, this should be hashed
+            };
+            resolve("User successfully registered. Now you can login.");
+        } catch (error) {
+            reject(error);
+        }
+    });
+}
+
 // Task 1 & Task 10: Get all books (using async/await)
 router.get('/', async function (req, res) {
     try {
@@ -121,51 +164,40 @@ router.get('/title/:title', async function (req, res) {
     }
 });
 
-// Task 5: Get book reviews by ISBN
-router.get('/review/:isbn', function (req, res) {
-    const isbn = req.params.isbn;
-    
-    // Check if book exists
-    if (books[isbn]) {
-        const reviews = books[isbn].reviews;
-        
-        if (Object.keys(reviews).length > 0) {
-            res.status(200).json(JSON.stringify(reviews, null, 2));
+// Task 5: Get book reviews by ISBN (using async/await)
+router.get('/review/:isbn', async function (req, res) {
+    try {
+        const isbn = req.params.isbn;
+        const result = await getReviewsByISBN(isbn);
+        if (result.message) {
+            res.status(200).json(result);
         } else {
-            res.status(200).json({ message: "No reviews found for this book" });
+            res.status(200).json(JSON.stringify(result, null, 2));
         }
-    } else {
-        res.status(404).json({ message: "Book not found" });
+    } catch (error) {
+        if (error.message === "Book not found") {
+            res.status(404).json({ message: error.message });
+        } else {
+            res.status(500).json({ message: error.message });
+        }
     }
 });
 
-// Task 6: Register a new user
-router.post('/register', function (req, res) {
-    const { username, password } = req.body;
-    
-    // Check if username and password are provided
-    if (!username || !password) {
-        return res.status(400).json({ 
-            message: "Username and password are required" 
-        });
+// Task 6: Register a new user (using async/await)
+router.post('/register', async function (req, res) {
+    try {
+        const { username, password } = req.body;
+        const message = await registerUser(username, password);
+        res.status(201).json({ message });
+    } catch (error) {
+        if (error.message === "Username and password are required") {
+            res.status(400).json({ message: error.message });
+        } else if (error.message.includes("Username already exists")) {
+            res.status(409).json({ message: error.message });
+        } else {
+            res.status(500).json({ message: error.message });
+        }
     }
-    
-    // Check if username already exists
-    if (users[username]) {
-        return res.status(409).json({ 
-            message: "Username already exists. Please choose a different username." 
-        });
-    }
-    
-    // Register the new user
-    users[username] = {
-        username: username,
-        password: password // In production, this should be hashed
-    };
-    
-    res.status(201).json({ 
-        message: "User successfully registered. Now you can login." 
-    });
 });
 
 // Export the router
