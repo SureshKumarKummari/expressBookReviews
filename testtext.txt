@@ -1,0 +1,232 @@
+
+1.
+Question 1
+What is the benefit of using custom error-handling middleware in Express?
+
+.
+
+
+It gives you fine-grained control over how to handle errors and respond to them.
+
+
+
+It works well in various real-world scenarios.
+
+
+
+It centralizes error-handling logic in one place, making it easier to maintain and manage.
+
+
+
+It allows you to provide user-friendly error messages and instructions, improving the overall user experience.
+
+
+1 point
+2.
+Question 2
+Which of the following is a technique for input sanitization in Node applications?
+
+.
+
+
+Input validation and verification
+
+
+
+Black-listing
+
+
+
+HTML entity encoding
+
+
+
+White-listing
+
+
+1 point
+3.
+Question 3
+Which of the following is a feature of rate limiting in Node applications?
+
+.
+
+
+Ensures fair resource usage
+
+
+
+Manages heavy traffic
+
+
+
+Prevents server overload
+
+
+
+Optimizes resource utilization
+
+
+1 point
+4.
+Question 4
+Which of the following is a versatile logging library that supports multiple transports like console, file, and customizable log formats?
+
+.
+
+
+morgan
+
+
+
+console.log
+
+
+
+winston
+
+
+
+debug
+
+
+1 point
+5.
+Question 5
+Which of the following is a key challenge in error handling for asynchronous programming?
+
+.
+
+
+Timing
+
+
+
+Context
+
+
+
+Code flow
+
+
+
+Error propagation
+
+
+1 point
+6.
+Question 6
+The “throw” keyword is used to:
+
+.
+
+
+Throw custom errors
+
+
+
+Catch errors
+
+
+
+Attach additional information to an error
+
+
+
+Throw existing errors
+
+
+1 point
+7.
+Question 7
+The “instanceof” operator in error handling is used to:
+
+.
+
+
+Define a custom error
+
+
+
+Check the error type
+
+
+
+Provide utilities
+
+
+
+Send a JSON response
+
+
+1 point
+8.
+Question 8
+A try-catch block is used to ____________________.
+
+.
+
+
+Handle timeout
+
+
+
+Handle errors
+
+
+
+Execute errors
+
+
+
+Recover errors
+
+
+1 point
+9.
+Question 9
+Which logging tool offers in-browser local logging?
+
+.
+
+
+console.log
+
+
+
+winston
+
+
+
+debug
+
+
+
+Morgan
+
+
+1 point
+10.
+Question 10
+Rate limits are configured based on ____________.
+
+.
+
+
+API type
+
+
+
+Geo location
+
+
+
+Frequency
+
+
+
+Code length
+
+
+
+
